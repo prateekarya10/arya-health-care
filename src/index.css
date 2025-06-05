@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-primary: "Sora", sans-serif;
+}
+
+* {
+    font-family: var(--font-primary);
+}
+/* e.g. in src/index.css or src/globals.css */
+
+.input-group {
+  @apply mb-4;
+}
+
+.input-label {
+  @apply block mb-2 text-sm text-gray-600 font-medium;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+}
+
+.radio-option {
+  @apply flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm whitespace-nowrap;
+}
+
+.radio-option input {
+  @apply mr-2;
+}
+
