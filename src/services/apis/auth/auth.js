@@ -10,9 +10,9 @@ export const register = async (userData) => {
     const response = await api.post(endpoints.auth.register, userData);
     return response.data;
 };
-export const logout = async (userData) => {
-    const response = await api.post(endpoints.auth.logout, userData);
-    return response.data;
+export const logout = async ({ refreshToken }) => {
+	const response = await api.post("/auth/logout", { refreshToken });
+	return response.data;
 };
 
 export const getProfile = async () => {

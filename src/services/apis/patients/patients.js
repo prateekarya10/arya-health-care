@@ -40,3 +40,10 @@ export const searchPatients = async ({ search = "", page = 1, limit = 10, sort =
 	});
 	return response.data;
 };
+
+
+// 
+export const getAdminAnalytics = async () => {
+    const response = await api.get(endpoints.admin.analytics);
+    return response.data;
+};

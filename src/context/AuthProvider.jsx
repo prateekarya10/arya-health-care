@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 		user,
 		isLoading,
 		login: loginMutation,
-		logout: logoutMutation.mutate,
+		logout: logoutMutation,
 	};
 
 	return (

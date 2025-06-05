@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiSearch, FiPlus, FiChevronRight } from "react-icons/fi";
-import { useSearchPatients } from "../../../services/apis/patients/hook";
+import {
+	useDeletePatient,
+	useSearchPatients,
+} from "../../../services/apis/patients/hook";
 import PageHeader from "../../../components/PageHeader";
+import { useAuthContext } from "../../../context/AuthProvider";
+import { MdDelete } from "react-icons/md";
 
 const PatientsList = () => {
+	const { user } = useAuthContext();
 	const navigate = useNavigate();
 	const [search, setSearch] = useState("");
 	const [page, setPage] = useState(1);
@@ -15,6 +21,7 @@ const PatientsList = () => {
 		limit: 10,
 		sort: "age",
 	});
+	const { mutateAsync } = useDeletePatient();
 
 	const patients = data?.patients || [];
 
@@ -108,7 +115,39 @@ const PatientsList = () => {
 											ID: {patient.patientId} •{" "}
 											{patient.age}y • {patient.gender}
 										</p>
-										<FiChevronRight className="text-gray-400" />
+										{user.role === "admin" ? (
+											<button
+												onClick={async (e) => {
+													e.stopPropagation();
+
+													const confirmDelete =
+														window.confirm(
+															`Are you sure you want to delete patient ${patient.name}?`
+														);
+													if (!confirmDelete) return;
+
+													try {
+														await mutateAsync(
+															patient.patientId
+														);
+														toast.success(
+															"Patient deleted successfully!"
+														);
+													} catch (error) {
+														console.error(error);
+														toast.error(
+															"Failed to delete patient."
+														);
+													}
+												}}>
+												<MdDelete
+													size={24}
+													className="text-red-400 hover:text-red-600"
+												/>
+											</button>
+										) : (
+											<FiChevronRight className="text-gray-400" />
+										)}
 									</div>
 								</div>
 							</div>

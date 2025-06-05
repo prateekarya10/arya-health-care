@@ -8,21 +8,21 @@ export const endpoints = {
     },
 
     patients: {
-        list: `/patients/search`,                          // Search patients
-        create: `/patients`,                               // Create new patient (Doctor only)
-        update: (id) => `/patients/${id}`,                 // Update patient (Doctor only)
-        getById: (id) => `/patients/${id}`,                // Get patient by ID
-        vitalsUpdate: (id) => `/patients/${id}/vitals`,    // Update vitals (Nurse only)
-        appointments: (id) => `/patients/${id}/appointments`, // Get appointments (Receptionist/Admin/Doctor)
-        delete: (id) => `/patients/${id}`,                 // Delete patient (Admin only)
+        list: `/patients/search`,                         
+        create: `/patients`,                               
+        update: (id) => `/patients/${id}`,                                        
+        getById: (id) => `/patients/${id}`,               
+        vitalsUpdate: (id) => `/patients/${id}/vitals`,   
+        appointments: (id) => `/patients/${id}/appointments`, 
+        delete: (id) => `/patients/${id}`,         
     },
 
     doctor: {
-        dashboardStats: `/patients/dashboard-stats`,       // Doctor dashboard overview stats
+        dashboardStats: `/patients/dashboard-stats`,    
     },
 
     admin: {
-        analytics: `/patients/analytics`,                  // Admin analytics
+        analytics: `/patients/analytics`,   
     }
 };
 

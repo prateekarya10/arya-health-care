@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { HiOutlineUserGroup } from "react-icons/hi2";
-import { FaUserInjured } from "react-icons/fa";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { FaUserInjured, FaUser } from "react-icons/fa";
 import logoImage from "../assets/WelcomeLogo.png";
 
 const BottomNav = () => {
@@ -66,7 +65,7 @@ const BottomNav = () => {
 				</NavLink>
 
 				<NavLink
-					to="/calendar"
+					to="/profile"
 					className={({ isActive }) =>
 						`flex flex-col items-center text-xs ${
 							isActive
@@ -74,8 +73,8 @@ const BottomNav = () => {
 								: "text-white/70 hover:text-white"
 						}`
 					}>
-					<AiOutlineCalendar size={22} />
-					<span>Calendar</span>
+					<FaUser size={22} />
+					<span>Profile</span>
 				</NavLink>
 			</div>
 		</nav>

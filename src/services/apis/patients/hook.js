@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPatient, dashboardStats, deletePatient, getPatientById, searchPatients, updatePatient } from "./patients";
+import { createPatient, dashboardStats, deletePatient, getAdminAnalytics, getPatientById, searchPatients, updatePatient } from "./patients";
 
 // 1. Dashboard stats hook (GET)
 export const useDoctorDashboardStats = () => {
@@ -63,3 +63,11 @@ export const useSearchPatients = ({ search = "", page = 1, limit = 10, sort = "n
 		keepPreviousData: true,
 	});
 };
+
+// 
+export const useGetAdminAnalytics = () => {
+    return useQuery({
+        queryKey: ["admin-analytics"],
+        queryFn: getAdminAnalytics,
+    });
+}
