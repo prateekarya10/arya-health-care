@@ -7,6 +7,7 @@ import SelectField from "../../components/SelectField";
 import PageHeader from "../../components/PageHeader";
 import PrimaryButton from "../../components/PrimaryButton";
 import { register } from "../../services/apis/auth/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -35,11 +36,11 @@ const Register = () => {
             !form.confirmPassword ||
             !form.role
         ) {
-            alert("Please fill all fields.");
+            toast.error("Please fill all fields.");
             return;
         }
         if (form.password !== form.confirmPassword) {
-            alert("Passwords do not match.");
+            toast.error("Passwords do not match.");
             return;
         }
 
@@ -49,10 +50,10 @@ const Register = () => {
                 password: form.password,
                 role: form.role,
             });
-            alert("Registration successful!");
+            toast.success("Registration successful!");
             navigate("/login");
         } catch (error) {
-            alert(
+            toast.error(
                 `Registration failed: ${error?.response?.data?.message || error.message
                 }`
             );
@@ -61,7 +62,7 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex flex-col justify-start items-center px-4 bg-white text-center">
-            <PageHeader title="Register" showBack />
+            <PageHeader title="Register" textSize="text-[24px]" />
             <AuthWrapper>
                 <div className="text-start space-y-2">
                     <h2 className="text-[24px] font-semibold text-[#2260FF]">
@@ -77,7 +78,7 @@ const Register = () => {
                         label="Username"
                         id="username"
                         type="text"
-                        placeholder="example@example.com"
+                        placeholder="Enter Your Username"
                         value={form.username}
                         onChange={handleChange}
                     />
@@ -104,9 +105,10 @@ const Register = () => {
                         label="Role"
                         id="role"
                         options={[
-                            { label: "User", value: "user" },
+                            { label: "Nurse", value: "nurse" },
                             { label: "Admin", value: "admin" },
                             { label: "Doctor", value: "doctor" },
+                            { label: "Receptionist", value: "receptionist" },
                         ]}
                         value={form.role}
                         onChange={handleChange}

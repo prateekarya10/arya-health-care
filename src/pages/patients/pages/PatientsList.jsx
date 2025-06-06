@@ -41,7 +41,6 @@ const PatientsList = () => {
 			<PageHeader
 				title={"Patients"}
 				className={"pt-5"}
-				textSize={"text-lg"}
 			/>
 			<div className="p-4 ">
 				<div className="mb-6">
@@ -80,10 +79,10 @@ const PatientsList = () => {
 							alt="No data"
 							className="mx-auto w-24 h-24 opacity-70 mb-4"
 						/>
-						<p className="text-lg font-semibold">
+						<p className="text-sm font-semibold">
 							No patients found
 						</p>
-						<p className="text-sm">
+						<p className="text-xs">
 							Try adjusting your search or add a new patient.
 						</p>
 					</div>
@@ -99,9 +98,9 @@ const PatientsList = () => {
 								<div className="bg-blue-100 p-2 rounded-full mr-3">
 									<FiUser className="text-blue-600" />
 								</div>
-								<div className="flex-1">
+								<div className="flex-1 text-xs">
 									<div className="flex justify-between items-center">
-										<h2 className="font-bold text-gray-800">
+										<h2 className="font-bold text-sm text-gray-800">
 											{patient.name}
 										</h2>
 										<span className="text-xs text-gray-500">

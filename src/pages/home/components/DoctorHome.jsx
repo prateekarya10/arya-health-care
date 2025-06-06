@@ -25,13 +25,13 @@ const DoctorHome = () => {
                         <h1 className="text-xl font-bold text-gray-800">
                             Welcome, {doctorName}
                         </h1>
-                        <p className="text-gray-500 mt-1">{currentDate}</p>
+                        <p className="text-gray-500 mt-1 text-xs">{currentDate}</p>
                     </div>
                     <div className="bg-blue-100 p-2 rounded-full">
                         <FaUserInjured className="text-blue-600 text-xl" />
                     </div>
                 </div>
-                <p className="text-gray-600 mt-2">
+                <p className="text-gray-600 mt-2 text-xs">
                     Here's your schedule and updates for today
                 </p>
             </div>
@@ -41,7 +41,7 @@ const DoctorHome = () => {
                         <FaUserInjured className="text-blue-600" />
                     </div>
                     <div>
-                        <p className="text-sm text-gray-500">Patients Today</p>
+                        <p className="text-xs text-gray-500">Patients Today</p>
                         <h3 className="text-lg font-bold text-gray-800">
                             {data?.patientsToday || 0}
                         </h3>
@@ -52,8 +52,8 @@ const DoctorHome = () => {
                         <FaCalendarAlt className="text-green-600" />
                     </div>
                     <div>
-                        <p className="text-sm text-gray-500">
-                            Appointments Left
+                        <p className="text-xs text-gray-500">
+                            Appoi.. Left
                         </p>
                         <h3 className="text-lg font-bold text-gray-800">
                             {data?.appointmentsLeft || 0}
@@ -65,7 +65,7 @@ const DoctorHome = () => {
                         <AiOutlineCheckCircle className="text-indigo-600" />
                     </div>
                     <div>
-                        <p className="text-sm text-gray-500">Completed</p>
+                        <p className="text-xs text-gray-500">Completed</p>
                         <h3 className="text-lg font-bold text-gray-800">
                             {data?.appointmentsCompleted || 0}
                         </h3>
@@ -76,7 +76,7 @@ const DoctorHome = () => {
                         <BsPeopleFill className="text-yellow-600" />
                     </div>
                     <div>
-                        <p className="text-sm text-gray-500">New Patients</p>
+                        <p className="text-xs text-gray-500">New Patients</p>
                         <h3 className="text-lg font-bold text-gray-800">
                             {data?.newPatients || 0}
                         </h3>
@@ -87,7 +87,7 @@ const DoctorHome = () => {
                 <h2 className="text-lg font-semibold text-gray-800 mb-4">
                     Quick Actions
                 </h2>
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 gap-3 text-xs">
                     <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center transition">
                         <FaRegCalendarAlt className="mr-2" />
                         Appointments

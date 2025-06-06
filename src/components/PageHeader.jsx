@@ -1,7 +1,7 @@
 import { FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const PageHeader = ({ title, rightContent, className }) => {
+const PageHeader = ({ title, rightContent, className ,textSize="text-[20px]"}) => {
 	const navigate = useNavigate();
 
 	return (
@@ -11,7 +11,7 @@ const PageHeader = ({ title, rightContent, className }) => {
 					<FaChevronLeft className="text-2xl" />
 				</button>
 			</div>
-			<div className="text-[24px] font-semibold text-center flex-1 text-[#2260FF]">
+			<div className={`${textSize} font-semibold text-center flex-1 text-[#2260FF]`}>
 				{title}
 			</div>
 			<div className="w-[40px] text-right">{rightContent}</div>

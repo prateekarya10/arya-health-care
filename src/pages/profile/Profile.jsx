@@ -43,7 +43,7 @@ const Profile = () => {
 				className="pt-5"
 				textSize="text-lg"
 			/>
-			<div className="min-h-screen bg-gray-50 p-4 relative">
+			<div className=" bg-gray-50 p-4 relative">
 				<div className="max-w-md mx-auto">
 					<div className="overflow-hidden mb-6">
 						<div className="p-6">
@@ -53,7 +53,7 @@ const Profile = () => {
 										"U"}
 								</div>
 								<div>
-									<h2 className="text-xl font-bold text-gray-800 mb-4">
+									<h2 className="text-lg font-bold text-gray-800 mb-4">
 										{user?.username || "User"}
 									</h2>
 									<div
@@ -72,12 +72,11 @@ const Profile = () => {
 					</div>
 				</div>
 
-				{/* Logout button fixed at bottom center */}
-				<div className="flex justify-center w-44 mx-auto">
+				<div className="flex justify-center w-auto max-w-56 mx-auto">
 					<button
 						onClick={handleLogout}
 						disabled={logout?.isPending}
-						className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-red-500 text-white font-medium rounded-full shadow hover:bg-red-600 transition disabled:opacity-50">
+						className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-red-500 text-white font-medium rounded-full shadow hover:bg-red-600 transition disabled:opacity-50 text-xs ">
 						<FiLogOut className="w-5 h-5" />
 						<span>{logout?.isPending ? "Logging out..." : "Logout"}</span>
 					</button>

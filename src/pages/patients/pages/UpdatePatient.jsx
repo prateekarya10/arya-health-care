@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {FaUser,FaPhone,FaEnvelope,FaMapMarkerAlt,FaArrowLeft,FaSave} from "react-icons/fa";
 import PageHeader from "../../../components/PageHeader";
@@ -109,7 +109,7 @@ const UpdatePatient = () => {
 	};
 
 	const inputClass =
-		"w-full px-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
+		"w-full px-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs";
 
 	if (isPatientLoading) {
 		return <div className="p-4">Loading patient data...</div>;
@@ -120,28 +120,19 @@ const UpdatePatient = () => {
 			<PageHeader
 				title={"Update Patient"}
 				className={"py-3"}
-				actionButtons={[
-					{
-						label: "Back",
-						icon: <FaArrowLeft className="mr-2" />,
-						onClick: () => navigate(-1),
-						className:
-							"bg-gray-200 hover:bg-gray-300 text-gray-800",
-					},
-				]}
 			/>
 
 			<form onSubmit={handleSubmit} className="space-y-4 mt-4">
 				{/* Basic Info Section */}
 				<div className="bg-white rounded-xl shadow-sm p-4">
-					<h3 className="text-lg font-medium text-gray-800 mb-3 flex items-center">
+					<h3 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
 						<FaUser className="text-blue-500 mr-2" />
 						Basic Information
 					</h3>
 
 					<div className="space-y-3">
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Patient ID
 							</label>
 							<input
@@ -153,13 +144,13 @@ const UpdatePatient = () => {
 						</div>
 
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Full Name
 							</label>
 							<input
 								type="text"
 								name="name"
-								placeholder="John Doe"
+								placeholder="Enter Name"
 								className={inputClass}
 								value={formData.name}
 								onChange={handleChange}
@@ -168,13 +159,13 @@ const UpdatePatient = () => {
 						</div>
 
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Age
 							</label>
 							<input
 								type="number"
 								name="age"
-								placeholder="30"
+								placeholder="Enter Age"
 								className={inputClass}
 								value={formData.age}
 								onChange={handleChange}
@@ -183,7 +174,7 @@ const UpdatePatient = () => {
 						</div>
 
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Gender
 							</label>
 							<div className="flex space-x-4 mt-1">
@@ -197,7 +188,7 @@ const UpdatePatient = () => {
 										className="mr-2"
 										required
 									/>
-									<span className="text-sm">Male</span>
+									<span className="text-xs">Male</span>
 								</label>
 								<label className="flex items-center px-3 py-2 bg-[#ECF1FF] rounded-full">
 									<input
@@ -208,7 +199,7 @@ const UpdatePatient = () => {
 										onChange={handleChange}
 										className="mr-2"
 									/>
-									<span className="text-sm">Female</span>
+									<span className="text-xs">Female</span>
 								</label>
 								<label className="flex items-center px-3 py-2 bg-[#ECF1FF] rounded-full">
 									<input
@@ -219,7 +210,7 @@ const UpdatePatient = () => {
 										onChange={handleChange}
 										className="mr-2"
 									/>
-									<span className="text-sm">Other</span>
+									<span className="text-xs">Other</span>
 								</label>
 							</div>
 						</div>
@@ -228,14 +219,14 @@ const UpdatePatient = () => {
 
 				{/* Contact Info Section */}
 				<div className="bg-white rounded-xl shadow-sm p-4">
-					<h3 className="text-lg font-medium text-gray-800 mb-3 flex items-center">
+					<h3 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
 						<FaPhone className="text-blue-500 mr-2" />
 						Contact Information
 					</h3>
 
 					<div className="space-y-3">
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Phone Number
 							</label>
 							<div className="relative">
@@ -243,8 +234,8 @@ const UpdatePatient = () => {
 								<input
 									type="tel"
 									name="phone"
-									placeholder="9876543210"
-									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+									placeholder="Enter Mobile"
+									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
 									value={formData.contactInfo.phone}
 									onChange={(e) =>
 										setFormData((prev) => ({
@@ -261,7 +252,7 @@ const UpdatePatient = () => {
 						</div>
 
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Email
 							</label>
 							<div className="relative">
@@ -269,8 +260,8 @@ const UpdatePatient = () => {
 								<input
 									type="email"
 									name="email"
-									placeholder="patient@example.com"
-									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+									placeholder="Enter Email"
+									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
 									value={formData.contactInfo.email}
 									onChange={(e) =>
 										setFormData((prev) => ({
@@ -287,15 +278,15 @@ const UpdatePatient = () => {
 						</div>
 
 						<div className="mb-4">
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-xs font-medium text-gray-700 mb-1">
 								Address
 							</label>
 							<div className="relative">
 								<FaMapMarkerAlt className="absolute left-3 top-3 text-gray-400" />
 								<textarea
 									name="address"
-									placeholder="123 Main St, City"
-									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[80px]"
+									placeholder="Enter Address"
+									className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs min-h-[80px]"
 									value={formData.contactInfo.address}
 									onChange={(e) =>
 										setFormData((prev) => ({
@@ -317,14 +308,14 @@ const UpdatePatient = () => {
 					<button
 						type="button"
 						onClick={() => navigate(-1)}
-						className="flex-1 py-3 bg-gray-200 text-gray-800 rounded-full font-medium shadow-md hover:bg-gray-300 active:bg-gray-400 transition-colors flex items-center justify-center">
+						className="flex-1 py-3 bg-gray-200 text-gray-800 rounded-full font-medium  hover:bg-gray-300 active:bg-gray-400 transition-colors flex items-center justify-center text-xs">
 						<FaArrowLeft className="mr-2" />
 						Cancel
 					</button>
 					<button
 						type="submit"
 						disabled={isUpdating}
-						className="flex-1 py-3 bg-blue-600 text-white rounded-full font-medium shadow-md hover:bg-blue-700 active:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+						className="flex-1 py-3 bg-blue-600 text-white rounded-full font-medium  hover:bg-blue-700 active:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-xs">
 						{isUpdating ? (
 							"Saving..."
 						) : (

@@ -29,13 +29,14 @@ const Login = () => {
 			await login.mutateAsync(loginData);
 			navigate("/");
 		} catch (error) {
-			console.error("Login failed", error);
+			const errorMsg = error?.response?.data?.msg || "Login failed";
+			toast.error(errorMsg);
 		}
 	};
 
 	return (
 		<div className="min-h-screen flex flex-col justify-start items-center px-4 bg-white text-center">
-			<PageHeader title="Log In" showBack />
+			<PageHeader title="Log In" textSize="text-[24px]" />
 			<AuthWrapper>
 				<div className="text-start space-y-2">
 					<h2 className="text-[24px] font-semibold text-[#2260FF]">
@@ -52,7 +53,7 @@ const Login = () => {
 						label="Username"
 						id="username"
 						type="text"
-						placeholder="example@example.com"
+						placeholder="Enter Your Username"
 						value={loginData.username}
 						onChange={handleChange}
 					/>
@@ -66,11 +67,11 @@ const Login = () => {
 						onChange={handleChange}
 					/>
 
-					<div
+					{/* <div
 						className="text-xs text-[#2260FF] mt-2 text-end mr-2 font-medium cursor-pointer"
 						onClick={() => navigate("/forgot-password")}>
 						Forget Password
-					</div>
+					</div> */}
 
 					<div className="flex flex-col items-center gap-3 w-full mt-10">
 						<PrimaryButton

@@ -71,7 +71,7 @@ const AdminHome = () => {
 
     return (
         <div className="p-4 min-h-screen pb-28 bg-gray-50">
-            <h1 className="text-lg font-bold text-gray-800 mb-6 mt-3">Admin Dashboard</h1>
+            <h1 className="text-[24px] font-bold text-[#2260FF] mb-6 mt-3">Admin Dashboard</h1>
 
             {/* Summary Cards */}
             <div className="grid grid-cols-2 gap-4 mb-4">
@@ -80,14 +80,14 @@ const AdminHome = () => {
                         <FaUsers className="text-blue-500 mr-2 text-lg" />
                         <span className="text-xs font-medium text-gray-500">Total Patients</span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800">{totalPatients}</h3>
+                    <h3 className="text-sm font-bold text-gray-800">{totalPatients}</h3>
                 </div>
 
                 <div className="bg-white p-4 rounded-xl shadow-md border-l-4 border-green-500 flex flex-col">
                     <div className="flex items-center mb-2">
                         <span className="text-xs font-medium text-gray-500">Avg. Age</span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800">{averageAge} yrs</h3>
+                    <h3 className="text-sm font-bold text-gray-800">{averageAge.toFixed(2)} yrs</h3>
                 </div>
             </div>
 

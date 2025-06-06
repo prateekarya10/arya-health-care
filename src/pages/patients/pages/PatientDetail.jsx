@@ -63,7 +63,7 @@ const PatientDetail = () => {
     <>
       <div>
         {/* Header */}
-        <PageHeader title={"Patient Details"} className={"pt-5"} textSize={"text-lg"} />
+        <PageHeader title={"Patient Details"} className={"pt-5"}  />
         <div className="p-4 bg-gray-50 ">
           <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
             <div className="flex items-center justify-between">
@@ -72,10 +72,10 @@ const PatientDetail = () => {
                   <FiUser className="text-blue-600 text-xl" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-800">
+                  <h1 className="text-xs font-bold text-gray-800">
                     {name}
                   </h1>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs text-gray-500">
                     ID: {id}
                   </p>
                 </div>
@@ -84,8 +84,8 @@ const PatientDetail = () => {
                 onClick={handleEdit}
                 className="flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded-lg transition-colors"
               >
-                <FiEdit className="text-sm" />
-                <span className="text-sm font-medium">Edit</span>
+                <FiEdit className="text-xs" />
+                <span className="text-xs font-medium">Edit</span>
               </button>
             </div>
           </div>
@@ -93,11 +93,11 @@ const PatientDetail = () => {
           {/* Rest of your existing code remains the same */}
           {/* Personal Info */}
           <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+            <h2 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <FiUser className="mr-2 text-blue-500" /> Personal
               Information
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 text-xs">
               <div className="flex justify-between">
                 <span className="text-gray-500">Age</span>
                 <span className="font-medium">{age} years</span>
@@ -111,11 +111,11 @@ const PatientDetail = () => {
 
           {/* Contact Info */}
           <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+            <h2 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <FiMail className="mr-2 text-blue-500" /> Contact
               Information
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 text-xs">
               {contactInfo?.phone && (
                 <div className="flex items-center">
                   <FiPhone className="text-gray-400 mr-2" />
@@ -143,7 +143,7 @@ const PatientDetail = () => {
           {vitals && (
             <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-lg font-semibold text-gray-800 flex items-center">
+                <h2 className="text-sm font-semibold text-gray-800 flex items-center">
                   <FiActivity className="mr-2 text-blue-500" />{" "}
                   Vital Signs
                 </h2>
@@ -216,13 +216,13 @@ const PatientDetail = () => {
 
           {/* Appointments */}
           <div className="bg-white rounded-xl shadow-sm p-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+            <h2 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
               <FiCalendar className="mr-2 text-blue-500" />{" "}
               Upcoming Appointments
             </h2>
 
             {appointments?.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">
+              <p className="text-gray-500 text-center py-4 text-sm">
                 No upcoming appointments
               </p>
             ) : (
@@ -231,12 +231,12 @@ const PatientDetail = () => {
                   <div
                     key={index}
                     className="border rounded-lg p-3">
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex justify-between items-start mb-2 text-xs">
                       <div>
-                        <p className="font-bold text-gray-800">
+                        <p className="font-bold text-gray-800 ">
                           {appointment.doctor}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-xs text-gray-500">
                           {appointment.department}
                         </p>
                       </div>
@@ -253,13 +253,13 @@ const PatientDetail = () => {
                         {appointment.status}
                       </span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 mb-1">
+                    <div className="flex items-center text-xs text-gray-600 mb-1">
                       <FiClock className="mr-1" />
                       <span>
                         {formatDate(appointment.date)}
                       </span>
                     </div>
-                    <p className="text-sm mt-2">
+                    <p className="text-xs mt-2">
                       <span className="text-gray-500">
                         Reason:
                       </span>{" "}

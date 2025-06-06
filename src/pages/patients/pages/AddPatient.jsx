@@ -118,7 +118,7 @@ const AddPatient = () => {
 
     };
 
-    const inputClass = "w-full px-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+    const inputClass = "w-full px-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
 
     return (
         <div className="p-4 max-w-md mx-auto">
@@ -127,21 +127,20 @@ const AddPatient = () => {
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                 {/* Basic Info Section */}
                 <div className="bg-white rounded-xl shadow-sm p-4">
-                    <h3 className="text-lg font-medium text-gray-800 mb-3 flex items-center">
+                    <h3 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                         <FaUser className="text-blue-500 mr-2" />
                         Basic Information
                     </h3>
-
                     <div className="space-y-3">
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Full Name
                             </label>
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="John Doe"
+                                placeholder="Enter  Name"
                                 className={inputClass}
                                 value={formData.name}
                                 onChange={handleChange}
@@ -150,13 +149,13 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Age
                             </label>
                             <input
                                 type="number"
                                 name="age"
-                                placeholder="30"
+                                placeholder="Enter  Age"
                                 className={inputClass}
                                 value={formData.age}
                                 onChange={handleChange}
@@ -165,7 +164,7 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Gender
                             </label>
                             <div className="flex space-x-4 mt-1">
@@ -179,7 +178,7 @@ const AddPatient = () => {
                                         className="mr-2"
                                         required
                                     />
-                                    <span className="text-sm">Male</span>
+                                    <span className="text-xs">Male</span>
                                 </label>
                                 <label className="flex items-center px-3 py-2 bg-[#ECF1FF] rounded-full">
                                     <input
@@ -190,7 +189,7 @@ const AddPatient = () => {
                                         onChange={handleChange}
                                         className="mr-2"
                                     />
-                                    <span className="text-sm">Female</span>
+                                    <span className="text-xs">Female</span>
                                 </label>
                                 <label className="flex items-center px-3 py-2 bg-[#ECF1FF] rounded-full">
                                     <input
@@ -201,7 +200,7 @@ const AddPatient = () => {
                                         onChange={handleChange}
                                         className="mr-2"
                                     />
-                                    <span className="text-sm">Other</span>
+                                    <span className="text-xs">Other</span>
                                 </label>
                             </div>
                         </div>
@@ -210,14 +209,14 @@ const AddPatient = () => {
 
                 {/* Contact Info Section */}
                 <div className="bg-white rounded-xl shadow-sm p-4">
-                    <h3 className="text-lg font-medium text-gray-800 mb-3 flex items-center">
+                    <h3 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                         <FaPhone className="text-blue-500 mr-2" />
                         Contact Information
                     </h3>
 
                     <div className="space-y-3">
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Phone Number
                             </label>
                             <div className="relative">
@@ -225,8 +224,8 @@ const AddPatient = () => {
                                 <input
                                     type="tel"
                                     name="phone"
-                                    placeholder="9876543210"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Enter Mobile"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                                     value={formData.contactInfo.phone}
                                     onChange={handleChange}
                                     required
@@ -235,7 +234,7 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Email
                             </label>
                             <div className="relative">
@@ -243,8 +242,8 @@ const AddPatient = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="patient@example.com"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Enter Email"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                                     value={formData.contactInfo.email}
                                     onChange={handleChange}
                                     required
@@ -253,15 +252,15 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Address
                             </label>
                             <div className="relative">
                                 <FaMapMarkerAlt className="absolute left-3 top-3 text-gray-400" />
                                 <textarea
                                     name="address"
-                                    placeholder="123 Main St, City"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[80px]"
+                                    placeholder="Enter Address"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs min-h-[80px]"
                                     value={formData.contactInfo.address}
                                     onChange={handleChange}
                                     required
@@ -273,14 +272,14 @@ const AddPatient = () => {
 
                 {/* Appointment Info Section */}
                 <div className="bg-white rounded-xl shadow-sm p-4">
-                    <h3 className="text-lg font-medium text-gray-800 mb-3 flex items-center">
+                    <h3 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                         <FaCalendarAlt className="text-blue-500 mr-2" />
                         Appointment Details
                     </h3>
 
                     <div className="space-y-3">
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Date & Time
                             </label>
                             <div className="relative">
@@ -288,7 +287,7 @@ const AddPatient = () => {
                                 <input
                                     type="datetime-local"
                                     name="date"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                                     value={formData.appointments[0].date}
                                     onChange={handleChange}
                                     required
@@ -297,14 +296,14 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Department
                             </label>
                             <div className="relative">
                                 <FaStethoscope className="absolute left-3 top-3 text-gray-400" />
                                 <select
                                     name="department"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs appearance-none"
                                     value={formData.appointments[0].department}
                                     onChange={handleChange}
                                     required
@@ -319,7 +318,7 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Doctor
                             </label>
                             <div className="relative">
@@ -327,8 +326,8 @@ const AddPatient = () => {
                                 <input
                                     type="text"
                                     name="doctor"
-                                    placeholder="Dr. Smith"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Enter Dr. Name"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                                     value={formData.appointments[0].doctor}
                                     onChange={handleChange}
                                     required
@@ -337,7 +336,7 @@ const AddPatient = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Reason
                             </label>
                             <div className="relative">
@@ -345,8 +344,8 @@ const AddPatient = () => {
                                 <input
                                     type="text"
                                     name="reason"
-                                    placeholder="Checkup"
-                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Enter Note"
+                                    className="w-full pl-10 pr-4 py-3 bg-[#ECF1FF] rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
                                     value={formData.appointments[0].reason}
                                     onChange={handleChange}
                                     required
@@ -354,8 +353,8 @@ const AddPatient = () => {
                             </div>
                         </div>
 
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                        {/* <div className="mb-4">
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
                                 Status
                             </label>
                             <div className="flex space-x-2 overflow-x-auto py-2">
@@ -363,7 +362,7 @@ const AddPatient = () => {
                                     (status) => (
                                         <label
                                             key={status}
-                                            className="flex items-center px-3 py-2 bg-[#ECF1FF] rounded-full whitespace-nowrap"
+                                            className="flex items-center text-xs px-3 py-2 bg-[#ECF1FF] rounded-full whitespace-nowrap"
                                         >
                                             <input
                                                 type="radio"
@@ -374,12 +373,12 @@ const AddPatient = () => {
                                                 className="mr-2"
                                                 required
                                             />
-                                            <span className="text-sm">{status}</span>
+                                            <span className="text-xs">{status}</span>
                                         </label>
                                     )
                                 )}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -387,7 +386,7 @@ const AddPatient = () => {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full py-3 bg-blue-600 text-white rounded-full font-medium shadow-md hover:bg-blue-700 active:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-xs"
                 >
                     {isLoading ? "Adding..." : "Add Patient Record"}
                 </button>
