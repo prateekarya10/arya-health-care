@@ -35,10 +35,10 @@ export const deletePatient = async (patientId) => {
 // Search patient (admin only)
 
 export const searchPatients = async ({ search = "", page = 1, limit = 10, sort = "name" }) => {
-	const response = await api.get(endpoints.patients.list, {
-		params: { search, page, limit, sort },
-	});
-	return response.data;
+    const response = await api.get(endpoints.patients.list, {
+        params: { search, page, limit, sort },
+    });
+    return response.data;
 };
 
 
@@ -60,8 +60,8 @@ export const getPatientsPendingVitals = async () => {
 };
 
 export const getNurseStats = async () => {
-  const response = await api.get(endpoints.nurse.nurseStats);
-  return response.data;
+    const response = await api.get(endpoints.nurse.nurseStats);
+    return response.data;
 };
 
 // ------------------- Receptionist -------------------
@@ -74,4 +74,17 @@ export const getTodaysAppointments = async () => {
     const response = await api.get(endpoints.receptionist.todaysAppointments);
     return response.data;
 };
+
+export const getReceptionistStats = async () => {
+    const response = await api.get(endpoints.receptionist.receptionistSstats);
+    return response.data;
+};
+
+export const updatePatientAppointments = async ({ patientId, appointmentDate, updates }) => {
+	return await api.patch(endpoints.receptionist.patientAppointments(patientId), {
+		appointmentDate,
+		updates,
+	});
+};
+
 

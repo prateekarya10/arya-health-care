@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPatient, dashboardStats, deletePatient, getAdminAnalytics, getNurseStats, getPatientAppointments, getPatientById, getPatientsPendingVitals, getTodaysAppointments, searchPatients, updatePatient, updatePatientVitals } from "./patients";
+import { createPatient, dashboardStats, deletePatient, getAdminAnalytics, getNurseStats, getPatientAppointments, getPatientById, getPatientsPendingVitals, getReceptionistStats, getTodaysAppointments, searchPatients, updatePatient, updatePatientAppointments, updatePatientVitals } from "./patients";
 
 // 1. Dashboard stats hook (GET)
 export const useDoctorDashboardStats = () => {
@@ -57,11 +57,11 @@ export const useDeletePatient = () => {
 
 // 6. Search patients (GET with query params)
 export const useSearchPatients = ({ search = "", page = 1, limit = 10, sort = "name" }) => {
-	return useQuery({
-		queryKey: ["patients", { search, page, limit, sort }],
-		queryFn: () => searchPatients({ search, page, limit, sort }),
-		keepPreviousData: true,
-	});
+    return useQuery({
+        queryKey: ["patients", { search, page, limit, sort }],
+        queryFn: () => searchPatients({ search, page, limit, sort }),
+        keepPreviousData: true,
+    });
 };
 
 // 
@@ -119,4 +119,22 @@ export const useTodaysAppointments = () => {
         queryKey: ["todays-appointments"],
         queryFn: getTodaysAppointments,
     });
+};
+// receptionistStats
+export const useGetReceptionistStats = () => {
+    return useQuery({
+        queryKey: ["receptionistStats"],
+        queryFn: getReceptionistStats,
+    });
+};
+
+export const useUpdatePatientAppointments = () => {
+	const queryClient = useQueryClient();
+	return useMutation({
+		mutationFn: updatePatientAppointments,
+		onSuccess: (_, variables) => {
+			queryClient.invalidateQueries(["patient-appointments", variables.patientId]);
+			queryClient.invalidateQueries(["todays-appointments"]);
+		},
+	});
 };

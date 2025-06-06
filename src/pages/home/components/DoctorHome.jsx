@@ -27,14 +27,14 @@ const DoctorHome = () => {
 			<div className="mb-6">
 				<div className="flex justify-between items-start">
 					<div>
-						<h1 className="text-xl font-bold text-gray-800">
+						<h1 className="text-lg font-bold text-gray-800">
 							Welcome, {doctorName}
 						</h1>
 						<p className="text-gray-500 mt-1 text-xs">
 							{currentDate}
 						</p>
 					</div>
-					<div className="bg-blue-100 p-2 rounded-full">
+					<div className="bg-blue-100 p-2 rounded-full ">
 						<FaUserInjured className="text-blue-600 text-xl" />
 					</div>
 				</div>
@@ -89,17 +89,17 @@ const DoctorHome = () => {
 				</div>
 			</div>
 			<div className="bg-white rounded-xl shadow-sm p-5">
-				<h2 className="text-lg font-semibold text-gray-800 mb-4">
+				<h2 className="text-sm font-semibold text-gray-800 mb-4">
 					Quick Actions
 				</h2>
 				<div className="grid grid-cols-1 gap-3 text-xs">
-					<button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center transition">
+					<button onClick={() => navigate("/appointments")} className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center transition text-xs">
 						<FaRegCalendarAlt className="mr-2" />
 						Appointments
 					</button>
 					<button
 						onClick={() => navigate("/patients/add")}
-						className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center transition">
+						className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center transition text-xs">
 						<FaNotesMedical className="mr-2" />
 						Add Patient
 					</button>

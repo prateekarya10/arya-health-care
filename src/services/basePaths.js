@@ -5,6 +5,7 @@ export const endpoints = {
         register: `/auth/register`,
         refreshToken: `/auth/refresh-token`,
         profile: `/auth/profile`,
+        allUsers: `/auth/users`,
     },
 
     patients: {
@@ -33,6 +34,7 @@ export const endpoints = {
     receptionist: {
         patientAppointments: (patientId) => `/patients/${patientId}/appointments`,
         todaysAppointments: `/patients/appointments/today`,
+        receptionistSstats: `/patients/receptionist/stats`,
     }
 };
 

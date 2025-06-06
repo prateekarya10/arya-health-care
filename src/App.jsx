@@ -10,6 +10,7 @@ const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Home = React.lazy(() => import("./pages/home/Home"));
 const Profile = React.lazy(() => import("./pages/profile/Profile"));
+const Team = React.lazy(() => import("./pages/profile/Team"));
 
 const Patients = React.lazy(() => import("./pages/patients/Patients"));
 const PatientsList = React.lazy(() => import("./pages/patients/pages/PatientsList"));
@@ -18,7 +19,11 @@ const UpdatePatient = React.lazy(() => import("./pages/patients/pages/UpdatePati
 const PatientDetail = React.lazy(() => import("./pages/patients/pages/PatientDetail"));
 const VitalsList = React.lazy(() => import("./pages/patients/pages/VitalsList"));
 const UpdateVitals = React.lazy(() => import("./pages/patients/pages/UpdateVitals"));
-
+// Add the new Appointments components
+const Appointments = React.lazy(() => import("./pages/appointments/Appointments"));
+const AppointmentsList = React.lazy(() => import("./pages/appointments/pages/AppointmentsList"));
+// const AddAppointment = React.lazy(() => import("./pages/appointments/pages/AddAppointment"));
+const UpdateAppointment = React.lazy(() => import("./pages/appointments/pages/UpdateAppointment"));
 const MOBILE_MAX_WIDTH = 768;
 
 const App = () => {
@@ -71,7 +76,13 @@ const App = () => {
                             <Route path="vitals" element={<VitalsList />} />
                             <Route path="vitals/:id" element={<UpdateVitals />} />
                         </Route>
+                        <Route path="/appointments" element={<Appointments />}>
+                            <Route index element={<AppointmentsList />} />
+                            {/* <Route path="add" element={<AddAppointment />} /> */}
+                            <Route path="update/:appointmentId" element={<UpdateAppointment />} />
+                        </Route>
                         <Route path="/profile" element={<Profile />} />
+                        <Route path="/team" element={<Team />} />
                     </Route>
                 </Routes>
             </Suspense>

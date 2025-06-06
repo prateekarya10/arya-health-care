@@ -12,6 +12,7 @@ const NurseHome = () => {
 	const navigate = useNavigate();
 	const { data, isLoading, isError, error } = useGetNurseStats();
 
+	// Use API data or fallback to 0 if not loaded yet
 	const stats = {
 		patientsToCheck: data?.patientsToCheck ?? 0,
 		vitalsUpdatedToday: data?.vitalsUpdatedToday ?? 0,

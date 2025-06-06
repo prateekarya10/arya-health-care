@@ -232,12 +232,12 @@ const PatientDetail = () => {
 					<div className="bg-white rounded-xl shadow-sm p-4">
 						<h2 className="text-sm font-semibold text-gray-800 mb-3 flex items-center">
 							<FiCalendar className="mr-2 text-blue-500" />{" "}
-							Upcoming Appointments
+							 Appointment
 						</h2>
 
-						{appointments?.length === 0 ? (
+						{appointments?.length === 0  ? (
 							<p className="text-gray-500 text-center py-4 text-sm">
-								No upcoming appointments
+								No  appointments
 							</p>
 						) : (
 							<div className="space-y-3">

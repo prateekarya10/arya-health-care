@@ -1,4 +1,5 @@
-import {api} from "../../apiClient";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../apiClient";
 import endpoints from "../../basePaths";
 
 export const login = async (credentials) => {
@@ -11,8 +12,8 @@ export const register = async (userData) => {
     return response.data;
 };
 export const logout = async ({ refreshToken }) => {
-	const response = await api.post("/auth/logout", { refreshToken });
-	return response.data;
+    const response = await api.post("/auth/logout", { refreshToken });
+    return response.data;
 };
 
 export const getProfile = async () => {
@@ -23,4 +24,16 @@ export const getProfile = async () => {
 export const refreshToken = async () => {
     const response = await api.post(endpoints.auth.refreshToken());
     return response.data;
+};
+
+const getAllUsers = async () => {
+    const response = await api.get(endpoints.auth.allUsers);
+    return response.data;
+};
+
+export const useGetAllUsers = () => {
+    return useQuery({
+        queryKey: ["getAllUsers"],
+        queryFn: getAllUsers,
+    });
 };
