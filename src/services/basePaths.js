@@ -8,21 +8,31 @@ export const endpoints = {
     },
 
     patients: {
-        list: `/patients/search`,                         
-        create: `/patients`,                               
-        update: (id) => `/patients/${id}`,                                        
-        getById: (id) => `/patients/${id}`,               
-        vitalsUpdate: (id) => `/patients/${id}/vitals`,   
-        appointments: (id) => `/patients/${id}/appointments`, 
-        delete: (id) => `/patients/${id}`,         
+        list: `/patients/search`,
+        create: `/patients`,
+        update: (id) => `/patients/${id}`,
+        getById: (id) => `/patients/${id}`,
+        vitalsUpdate: (id) => `/patients/${id}/vitals`,
+        appointments: (id) => `/patients/${id}/appointments`,
+        delete: (id) => `/patients/${id}`,
     },
 
     doctor: {
-        dashboardStats: `/patients/dashboard-stats`,    
+        dashboardStats: `/patients/dashboard-stats`,
     },
 
     admin: {
-        analytics: `/patients/analytics`,   
+        analytics: `/patients/analytics`,
+    },
+    nurse: {
+        updateVitals: (patientId) => `/patients/${patientId}/vitals`,
+        pendingVitals: `/patients/pending/vitals`,
+        nurseStats: '/patients/nurse/stats',
+    },
+
+    receptionist: {
+        patientAppointments: (patientId) => `/patients/${patientId}/appointments`,
+        todaysAppointments: `/patients/appointments/today`,
     }
 };
 

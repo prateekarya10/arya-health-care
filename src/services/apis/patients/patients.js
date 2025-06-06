@@ -47,3 +47,31 @@ export const getAdminAnalytics = async () => {
     const response = await api.get(endpoints.admin.analytics);
     return response.data;
 };
+
+// ------------------- Nurse -------------------
+export const updatePatientVitals = async (patientId, vitalsData) => {
+    const response = await api.patch(endpoints.nurse.updateVitals(patientId), vitalsData);
+    return response.data;
+};
+
+export const getPatientsPendingVitals = async () => {
+    const response = await api.get(endpoints.nurse.pendingVitals);
+    return response.data;
+};
+
+export const getNurseStats = async () => {
+  const response = await api.get(endpoints.nurse.nurseStats);
+  return response.data;
+};
+
+// ------------------- Receptionist -------------------
+export const getPatientAppointments = async (patientId) => {
+    const response = await api.get(endpoints.receptionist.patientAppointments(patientId));
+    return response.data;
+};
+
+export const getTodaysAppointments = async () => {
+    const response = await api.get(endpoints.receptionist.todaysAppointments);
+    return response.data;
+};
+

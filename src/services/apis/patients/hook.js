@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPatient, dashboardStats, deletePatient, getAdminAnalytics, getPatientById, searchPatients, updatePatient } from "./patients";
+import { createPatient, dashboardStats, deletePatient, getAdminAnalytics, getNurseStats, getPatientAppointments, getPatientById, getPatientsPendingVitals, getTodaysAppointments, searchPatients, updatePatient, updatePatientVitals } from "./patients";
 
 // 1. Dashboard stats hook (GET)
 export const useDoctorDashboardStats = () => {
@@ -71,3 +71,52 @@ export const useGetAdminAnalytics = () => {
         queryFn: getAdminAnalytics,
     });
 }
+
+
+// ------------------ Nurse ------------------
+
+// Update vitals for a patient (PATCH)
+export const useUpdatePatientVitals = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: ({ patientId, vitalsData }) =>
+            updatePatientVitals(patientId, vitalsData),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["patients"] });
+            queryClient.invalidateQueries({ queryKey: ["patients-pending-vitals"] });
+        },
+    });
+};
+
+// Get list of patients pending vitals
+export const usePendingVitalsPatients = () => {
+    return useQuery({
+        queryKey: ["patients-pending-vitals"],
+        queryFn: getPatientsPendingVitals,
+    });
+};
+export const useGetNurseStats = () => {
+    return useQuery({
+        queryKey: ["getNurseStats"],
+        queryFn: getNurseStats,
+    });
+};
+
+// ------------------ Receptionist ------------------
+
+// Get appointments for a specific patient
+export const usePatientAppointments = (patientId) => {
+    return useQuery({
+        queryKey: ["patient-appointments", patientId],
+        queryFn: () => getPatientAppointments(patientId),
+        enabled: !!patientId,
+    });
+};
+
+// Get today's appointments
+export const useTodaysAppointments = () => {
+    return useQuery({
+        queryKey: ["todays-appointments"],
+        queryFn: getTodaysAppointments,
+    });
+};
