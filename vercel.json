@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/auth/:path*", "destination": "/" },
+    { "source": "/patients/:path*", "destination": "/" },
+    { "source": "/dashboard", "destination": "/" },
+    { "source": "/analytics", "destination": "/" },
+    { "source": "/doctors/:path*", "destination": "/" },
+    { "source": "/admin/:path*", "destination": "/" },
+    { "source": "/login", "destination": "/" },
+    { "source": "/register", "destination": "/" },
+    { "source": "/", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
